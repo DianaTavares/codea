@@ -1,0 +1,16 @@
+/* Actividad de introducción al Css */
+
+html{
+  text-align:center}
+h1{
+  color: green;
+  font-family: cursive;
+  font-size: 40px
+}
+td{
+  border: solid
+}
+#symbol{
+  border-radius: 100%;
+}
+
