@@ -1,0 +1,57 @@
+/* Actividad de introducción al Css */
+header{
+  display: inline-block;
+  }
+div{
+  display: inline-block;
+}
+header h1{
+  font-size: 60px;
+  color: #58ACFA;
+    
+}
+figure{
+  text-align: center;
+
+}
+figcaption{
+  color:#A4A4A4;
+}
+h1{
+  text-align: center;
+}
+footer
+{
+  border-top: 3px white dashed;
+  padding: 10px;
+  color:#A4A4A4;
+  text-align: center;
+}  
+table{
+  margin-left: 100px
+}
+.date{
+  font-weight: bold;
+}
+#celebre{
+  font-size: 20px;
+  color: #58ACFA;
+  text-align: center;
+  width: 600px;
+  margin-left: 400px
+}
+#quien{
+  text-align: center;
+  color: #6E6E6E;
+
+}
+#link{
+  color: black;
+}
+a{
+  color: #58ACFA;
+}
+
+
+
+
