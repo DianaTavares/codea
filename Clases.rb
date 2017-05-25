@@ -12,8 +12,10 @@ class Cat
   def self.meow
     "Miau... Miau..."
   end
+  @@b=0
   def run (a=0)
-    "Corriendo #{a} mts..."
+    @@b+=a
+    "Corriendo #{@@b} mts..."
   end
   def jump
     "Saltando..."
@@ -31,11 +33,10 @@ cat_5=Cat.new("loli")
 
 cat_3 =Cat.new("catty")
 
-p cat_1.jump #== "Saltando..."
+p cat_1.jump == "Saltando..."
 p cat_5.jump == "Saltando..."
 p Cat.meow == "Miau... Miau..."
 p cat_3.run == "Corriendo 0 mts..."
 p cat_3.run(20) == "Corriendo 20 mts..."
-#Creo que estos dos ejercicios tienen un error, el primero deberia tener entre parentesis (30) y el segundo (40) ¿o como es que dos valores iguales tienen resultados diferentes?
 p cat_3.run(10) == "Corriendo 30 mts..."
 p cat_3.run(10) == "Corriendo 40 mts..."
