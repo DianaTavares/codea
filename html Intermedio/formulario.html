@@ -1,0 +1,62 @@
+<!--Uso de la etiqueta div-->
+
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Formulario</title>
+  </head>
+  <body>
+    <form id="form_test">
+  <fieldset>
+    <legend>Facturación</legend>
+    <label for="Nombre Completo">
+      Nombre Completo:
+      <input type="text" name="nombre_completo">
+      <br>
+    </label><br>
+    <label for="RFC">
+      Last Name:
+      <input type="text" name="rfc">
+      <br>
+    </label><br>
+    <label for="Dirección">
+      Dirección:
+      <input type="text" name="dirección">
+    </label><br>
+    <br>
+    <label for="Email">
+      Email:
+      <input type="email" name="email">
+    </label><br>
+    <br>
+    <label for="Teléfono">
+      Telefono:
+      <input type="text" name="telefono">
+    </label><br>
+    <br>
+    <label for="descripcion_compra">
+      Descripcion de la compra:
+      <textarea form="form_test" rows="4" cols="50"></textarea>
+    </label><br>
+    <br>
+    <label for="tipo_pago">
+      Tipo de pago:
+      <select name="tipo_pago" form="form_test">
+        <option value"efectivo">efectivo</option>
+        <option value"cheque">cheque</option>
+        <option value"tarjeta">tarjeta</option>
+        <option value"otro">otro</option>
+      </select>
+      <br>
+    </label><br>
+    <label for="Monto">
+      Monto:
+      <input type="int" name="monto">
+    </label><br>
+  </fieldset>
+</form>
+
+  </body>
+</html>

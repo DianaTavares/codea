@@ -1,0 +1,26 @@
+/* Actividad de introducción al Css */
+
+#principal{
+  border: 2px solid yellow;
+  font-size: 30px;
+  width: 550px;
+  margin-left: 200px
+}
+
+#principal h2{
+  color:red;
+  
+}
+
+#principal p{
+  font-style: italic;
+  color:#3498DB;
+  
+}
+
+#parrafo{
+  text-decoration: line-through;
+  color:#3498DB;
+}
+
+
