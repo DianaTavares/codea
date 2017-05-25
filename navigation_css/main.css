@@ -1,0 +1,35 @@
+.container {
+  margin: 0 auto;
+  width: 768px;
+}
+
+header {
+  background-color: black;
+
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+}
+nav ul{
+  list-style-type: none;
+  background: #909497;
+  color:white;
+  
+  margin: 0;
+ padding: 0;
+}
+nav li{
+  display: inline-block;
+  text-align: center;
+}
+nav a{
+  color:white;
+  float: left;
+  width: 9em;
+  padding: 0.2em 1em;
+  text-decoration: none;
+}
+
+
