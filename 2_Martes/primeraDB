@@ -1,0 +1,34 @@
+Entrar a SQL· y crear un archivo (e la consola)
+sql3 nombreArchivo.db
+
+Crear una Tabla:
+CREATE TABLE usuarios (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nombre VARCHAR(64) NOT NULL,
+  apellido  VARCHAR(64) NOT NULL,
+  email VARCHAR(128) UNIQUE NOT NULL,
+  fecha_nacimiento DATETIME NOT NULL,
+  genero VARCHAR(10) NOT NULL
+);
+
+Consultar la tabla
+SELECT * FROM nombre_tabla.db;
+
+Para agregar una columna:
+ALTER TABLE usuarios
+ADD apodo VARCHAR(64);
+
+Para agregar un usuario:
+INSERT INTO usuarios
+ (nombre, apellido, email, fecha_nacimiento, genero, apodo)
+ VALUES
+ ('Diana', 'López', 'diana@yahoo.com', '1988-10-06', 'femenino', 'Dianis');
+
+
+Modificar algun valor con:
+UPDATE usuarios
+SET apellido = 'Rivero'
+WHERE id=1;
+
+Para salir de la base de datos
+.quit
