@@ -1,5 +1,5 @@
-Entrar a SQL· y crear un archivo (e la consola)
-sql3 nombreArchivo.db
+Entrar a SQL y abrir  crear un archivo (e la consola)
+sqlite3 nombreArchivo.db
 
 Crear una Tabla:
 CREATE TABLE usuarios (

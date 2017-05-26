@@ -1,0 +1,126 @@
+Paso 1: intertar nueva orden 
+
+INSERT INTO Orders
+ (OrderDate, RequiredDate, ShippedDate, CustomerID)
+ VALUES
+ ('2013-05-12', '2013-05-23', '2013-06-1', '2');
+
+ Paso 2: Insert/ Select / UpDate
+
+ *Creando un nuevo cliente
+ INSERT INTO Customers
+ (CompanyName, ContactName, ContactTitle, Address, City, State)
+ VALUES
+ ('CocaCola', 'Diana Lopez', 'Director', '539 Wake Street', 'Boulder', 'CO');
+
+ *Consulta de las ordenes  de Floor Co.
+--> Necesito el ID de Floor Co para acceder a sus ordenes, para ello:
+Select CustomerID From Customers Where CompanyName='Floor Co.';
+
+Respuesta=3
+
+--> Ahora accedemos a las ordenes que ha hecho
+ Select * From Orders Where CustomerID=3;
+
+ La respuesta es:
+ OrderID     CustomerID  OrderDate   RequiredDate  ShippedDate
+----------  ----------  ----------  ------------  -----------
+6           3           2012-04-28  2012-05-03    2012-04-29 
+10          3           2012-07-29  2012-08-03    2012-08-04 
+11          3           2012-08-21  2012-08-26    2012-08-22 
+16          3           2012-12-14  2012-12-19    2012-12-15 
+18          3           2013-01-29  2013-02-03    2013-01-30 
+20          3           2013-03-16  2013-03-21    2013-03-17 
+
+Las ordenes del 2013 son la 18 y 20, para modificarlas uso el codigo:
+
+UPDATE Orders
+SET CustomerID = 6
+WHERE OrderID=18;
+
+UPDATE Orders
+SET CustomerID = 6
+WHERE OrderID=20;
+
+Los resultados son:
+qlite>  Select * From Orders Where CustomerID=3;
+OrderID     CustomerID  OrderDate   RequiredDate  ShippedDate
+----------  ----------  ----------  ------------  -----------
+6           3           2012-04-28  2012-05-03    2012-04-29 
+10          3           2012-07-29  2012-08-03    2012-08-04 
+11          3           2012-08-21  2012-08-26    2012-08-22 
+16          3           2012-12-14  2012-12-19    2012-12-15 
+sqlite>  Select * From Orders Where CustomerID=6;
+OrderID     CustomerID  OrderDate   RequiredDate  ShippedDate
+----------  ----------  ----------  ------------  -----------
+18          6           2013-01-29  2013-02-03    2013-01-30 
+20          6           2013-03-16  2013-03-21    2013-03-17 
+
+*Paso 3: Borrando al cliente Slots Carpet
+
+-->Primero debemos saber que ID de Cliente tiene:
+
+elect CustomerID From Customers Where CompanyName='Slots Carpet'
+   ...> ;
+CustomerID
+----------
+5        
+
+-->Ahora a saber que OrdersID estan asociados con ese cliente
+
+Select * From Orders Where CustomerID=5;
+
+OrderID     CustomerID  OrderDate   RequiredDate  ShippedDate
+----------  ----------  ----------  ------------  -----------
+13          5           2012-10-06  2012-10-11    2012-10-07 
+17          5           2013-01-06  2013-01-11    2013-01-07 
+
+--> Los eliminamos con:
+
+DELETE FROM OrderDetails
+WHERE OrderID=17;
+
+DELETE FROM OrderDetails
+WHERE OrderID=13;
+
+--> momento de borrar las Ordenes:
+Delete From Orders
+Where CustomerID=5;
+
+--> El resultado es el siguiente, observamos que ya no hay ninguna orden con CustomerID=5
+OrderID     CustomerID  OrderDate   RequiredDate  ShippedDate
+----------  ----------  ----------  ------------  -----------
+1           1           2012-01-04  2012-01-09    2012-01-05 
+2           2           2012-01-27  2012-02-01    2012-01-28 
+3           4           2012-02-19  2012-02-24    2012-02-23 
+4           2           2012-03-13  2012-03-18    2012-03-14 
+5           4           2012-04-05  2012-04-10    2012-04-06 
+6           3           2012-04-28  2012-05-03    2012-04-29 
+7           4           2012-05-21  2012-05-26    2012-05-22 
+8           1           2012-06-13  2012-06-18    2012-06-14 
+9           2           2012-07-06  2012-07-11    2012-07-07 
+10          3           2012-07-29  2012-08-03    2012-08-04 
+11          3           2012-08-21  2012-08-26    2012-08-22 
+12          1           2012-09-13  2012-09-18    2012-09-14 
+14          2           2012-10-29  2012-11-03    2012-10-30 
+15          4           2012-11-21  2012-11-26    2012-11-22 
+16          3           2012-12-14  2012-12-19    2012-12-15 
+18          6           2013-01-29  2013-02-03    2013-01-30 
+19          2           2013-02-21  2013-02-26    2013-03-01 
+20          6           2013-03-16  2013-03-21    2013-03-17 
+21          2           2013-05-12  2013-05-23    2013-06-1  
+
+-->Momento de Borrar al Cliente
+Delete From Customers
+Where CustomerID=5;
+
+--Verificando que se eliminara:
+Select * From Customers;
+
+CustomerID  CompanyName     ContactName     ContactTitle  Address             City        State     
+----------  --------------  --------------  ------------  ------------------  ----------  ----------
+1           Deerfield Tile  Dick Terrcotta  Owner         450 Village Street  Deerfield   IL        
+2           Sagebrush Carp  Barbara Berber  Director of   10 Industrial Driv  El Paso     TX        
+3           Floor Co.       Jim Wood        Installer     34218 Private Lane  Monclair    NJ        
+4           Main Tile and   Toni Faucet     Owner         Suite 23, Henry Bu  Orlando     FL        
+6           CocaCola        Diana Lopez     Director      539 Wake Street     Boulder     CO 
