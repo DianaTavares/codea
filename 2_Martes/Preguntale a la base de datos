@@ -31,14 +31,14 @@ Main Tile a  4
 Deerfield T  3
 Slots Carpe  2
 
-Esto me da la primr columna
+-->Esto me da la primer columna
 Select CompanyName From Customers;
 
 
-Esta me da la segunda columna (sumada y en orden)
+-->Esta me da la segunda columna (sumada y en orden)
 Select count(CustomerID) From Orders Group by CustomerID order by count(CustomerID) desc;
 
-Uniendo las tablas
+-->Uniendo las tablas
 
 Select Customers.CompanyName, count(Orders.CustomerID)
 From Customers
@@ -55,12 +55,30 @@ Main Tile an  4
 Sagebrush Ca  5
 Floor Co.     6
 
+--> La misma indicación que el ejercicio anterior pero sin el desc del final
+
+Select Customers.CompanyName, count(Orders.CustomerID)
+From Customers
+Inner Join Orders On Customers.CustomerID=Orders.CustomerID Group by Orders.CustomerID order by count(Orders.CustomerID);
+
+
 
 # 6. The company with the most orders
 # =>
 CompanyName  ********
 -----------  ---------------------
 Floor Co.    6
+
+--> Select Customers.CompanyName, MAX(count(Orders.CustomerID))
+From Customers
+Inner Join Orders On Customers.CustomerID=Orders.CustomerID Group by Orders.CustomerID order by count(Orders.CustomerID);
+
+
+
+
+
+
+
 
 
 # 7. Total items ordered by each company ordered by the company with the most items
