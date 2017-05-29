@@ -69,16 +69,11 @@ CompanyName  ********
 -----------  ---------------------
 Floor Co.    6
 
---> Select Customers.CompanyName, MAX(count(Orders.CustomerID))
+Select Customers.CompanyName, count(Orders.CustomerID)
 From Customers
-Inner Join Orders On Customers.CustomerID=Orders.CustomerID Group by Orders.CustomerID order by count(Orders.CustomerID);
+Inner Join Orders On Customers.CustomerID=Orders.CustomerID Group by Orders.CustomerID order by count(Orders.CustomerID) desc limit 1;
 
-
-
-
-
-
-
+--> A la intruccion del ejercicio 4 le agregamos limit 1 lo que hace que solo muestre 1 resultado.
 
 
 # 7. Total items ordered by each company ordered by the company with the most items
@@ -91,6 +86,17 @@ Floor Co.           670
 Deerfield Tile      340
 Slots Carpet        250
 
+--> se requiere de dos Left Join para unir las tres tablas 
+
+Select Customers.CompanyName, sum(OrderDetails.Quantity) as TotalOrders From OrderDetails
+LEFT JOIN Orders
+on OrderDetails.OrderID=Orders.OrderID
+LEFT JOIN Customers
+on Orders.CustomerID=Customers.CustomerID
+Group by CompanyName
+Order by Quantity ASC;
+
+
 
 # 8. Total amount of order 4
 # =>
@@ -98,6 +104,11 @@ OrderID     ********
 ----------  ---------------------------------------------------
 4           400.0
 
+--> el codigo necesario es:
+
+Select OrderID, sum(UnitPrice*Quantity)
+From OrderDetails
+Where OrderId=4;
 
 # 9. Total amount for each order
 # =>
@@ -124,6 +135,12 @@ OrderID     ********
 19          1626.5
 20          166.0
 
+-->El codigo necesario es:
+
+Select OrderID, sum(UnitPrice*Quantity)
+From OrderDetails
+group by OrderID;
+
 # 10. Total amount for each order having more than 1000
 # =>
 OrderID     ********
@@ -137,6 +154,12 @@ OrderID     ********
 17          1942.6
 19          1626.5
 
+-->El codigo necesario es:
+
+Select OrderID, sum(UnitPrice*Quantity) as TotalAmount
+From OrderDetails
+group by OrderID
+having TotalAmount>1000;
 
 # 11. Total items in each order
 # =>
@@ -162,3 +185,9 @@ OrderID     ********
 18          120
 19          130
 20          60
+
+-->El codigo necesario es:
+
+Select OrderID, sum(Quantity)
+From OrderDetails
+group by OrderID;

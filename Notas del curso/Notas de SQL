@@ -1,0 +1,56 @@
+Notas de SQL
+
+*Consultas de informaciòn
+
+Select colum1, colum2 ...
+From Table_name
+Where condition
+  AND/OR other-conditions
+
+--> operadores para las condiciones
+*Numeros
+los clasicos =, !=, < ...
+...Between ... and ...
+... Not Between ... and ...
+in(number,numer,number)
+not in (number, number,...)
+
+*Strings (no olidar que van entre '')
+=
+like (con la opcion de poner % antes o despues del string si es un fragmento)
+not like 
+in (...)
+not in(...)
+
+***Columna unica!! usa Distinct 
+
+SELECT DISTINCT column, another_column, …
+FROM mytable
+WHERE condition(s);
+
+***Resultados ordenados
+SELECT column, another_column, …
+FROM mytable
+WHERE condition(s)
+ORDER BY column ASC/DESC;
+
+--> ejemplo combinando las dos anteriores:
+SELECT Distinct Director FROM movies Order by Director Asc
+
+**Limitando los resultados
+SELECT column, another_column, …
+FROM mytable
+WHERE condition(s)
+ORDER BY column ASC/DESC
+LIMIT num_limit OFFSET num_offset;
+
+-->Ejemplo: ultimas 4 peliculas de pixar:
+
+SELECT Title FROM movies Order by year Desc Limit 4;
+
+-->Ejemplo la lista de la 6 a la 10ma perlicula de Pixar
+SELECT title FROM movies
+ORDER BY title ASC
+LIMIT 5 OFFSET 5;
+
+
