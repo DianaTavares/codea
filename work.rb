@@ -1,31 +1,16 @@
-class RaceCar
-  def initialize(brand, model)
-    #variable de instancia 1
-    @brand = brand
-    #variable de instancia 2
-    @model = model
+a=[["Memory", [["Internal Memory", "32 GB"], ["Card Type", "MicroSD"]]], ["Size", [["Width", "12cm"], ["height", "20cm"]]]]
+
+def nested_arrays_to_hash(array)
+  result = {}
+  array.each do |elem|
+    second = if elem.last.is_a?(Array)
+      nested_arrays_to_hash(elem.last)
+    else
+      elem.last
+    end
+    result.merge!({elem.first.to_sym => second})
   end
-
-  #comportamiento 1
-  def acelerar
-    puts "Acelerando"
-  end
-
-  #comportamiento 2
-  def frenar
-    puts "Frenando"
-  end
-
-  #otros comportamientos...
-
+  result
 end
-
-#instancias de RaceCar
-speedy = RaceCar.new
-bolt = RaceCar.new("mercedez", "1997")
-#método de instancia 'acelerar'
-speedy.acelerar
-bolt.acelerar
-#método de instancia 'frenar'
-speedy.frenar
-bolt.frenar
+b=Hash[a]
+p b
