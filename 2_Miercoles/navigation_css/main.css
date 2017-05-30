@@ -1,0 +1,47 @@
+.container {
+  margin: 0 auto;
+  width: 768px;
+}
+
+header {
+  background-color: black;
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+}
+nav{
+  width: 15%;
+  height: 504px;
+  float: right;
+  background: #909497;
+  border-bottom: 1px solid black;
+  
+}
+.content  {
+  display: inline-block;
+  width: 82%;
+  margin-left: 10px;
+  border-bottom: 1px solid black;
+  
+}
+
+nav ul{
+  list-style-type: none;
+  text-align: center;
+  padding: 0px;
+
+}
+nav li{
+   margin-bottom: 5px;
+   
+}
+nav a{
+  color:white;
+  text-decoration: none;
+}
+.footer{
+  margin-top: 20px;
+ 
+}

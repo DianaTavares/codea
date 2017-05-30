@@ -1,16 +1,14 @@
-a=[["Memory", [["Internal Memory", "32 GB"], ["Card Type", "MicroSD"]]], ["Size", [["Width", "12cm"], ["height", "20cm"]]]]
-
-def nested_arrays_to_hash(array)
-  result = {}
-  array.each do |elem|
-    second = if elem.last.is_a?(Array)
-      nested_arrays_to_hash(elem.last)
-    else
-      elem.last
-    end
-    result.merge!({elem.first.to_sym => second})
+class Computer
+  attr_accessor :color
+  attr_reader :processor
+  def initialize(color,processor)
+    @color=color
+    @processor=processor
   end
-  result
 end
-b=Hash[a]
-p b
+mac=Computer.new("white","Intel")
+#test
+mac.processor
+#=>"Intel"
+mac.processor = "AMD"
+#=>...undefined method `processor='...
