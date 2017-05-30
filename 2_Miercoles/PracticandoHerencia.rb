@@ -40,7 +40,7 @@ class Fish < Animal
   end
 end
 
-class Dolphin < Fish
+class Dolphin < Mammal
   TIENE = 'se considerado un animal inteligente'
   def diferencia
     TIENE
@@ -79,7 +79,7 @@ class Cat < Mammal
   end
 end
 
-class Whale < Fish
+class Whale < Mammal
   TAMAÑO = 'son de los animales más granes'
   def diferencia
     TAMAÑO
@@ -102,6 +102,7 @@ tortuga=Turtle.new
 silvestre=Cat.new
 willy=Whale.new
 ave=Macaw.new
+nemo=Fish.new
 
 #creando algunas pruebas de coortameintos compartidos y diferentes
 #todos los animales comen!
@@ -109,8 +110,9 @@ p chihuahua.eat==tortuga.eat
 
 #solo los Mammal tienen sangre caliente y solo los fish nadan
 p silvestre.warm_blooded?
-p willy.swim=='Estos animales pueden nadar'
+p willy.warm_blooded?
+p nemo.swim=='Estos animales pueden nadar'
 
 #Pero los animales tienen sus diferencias
-p chihuaha.diferencia != ave.diferencia
+p chihuahua.diferencia != ave.diferencia
 
