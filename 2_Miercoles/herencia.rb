@@ -3,33 +3,53 @@
 
 
 class Vehicle
+  attr_reader  :color, :age, :has_motor, :tank_size, :refuel, :number_of_wheels, :number_of_gears
+ 
+  
 
   def what_am_i?
-    # Este método va a ser utilizado por varias clases y deberá regresar 
-    # el nombre de la clase desde la cual se corrió.
-    # ej.
-    # bocho = Car.new
-    # bocho.what_am_i? => Car
-    what_am_i?.class
+    self.class
+  end
+
+  def age!
+    if @age < 2000
+      puts "old vehicle"
+    else
+      puts "new vehicle"
+    end
+  end
+
+end
+
+class Motorized < Vehicle 
+  def initialize(age=1988)
+    @age=age
   end
 end
 
-class Motorized < Vehicle
-end
-
 class Motorbike < Vehicle
+  def initialize(age=2005)
+    @age=age
+  end
 end
 
 class Car < Vehicle
+  def initialize (age=2010)
+    @age=age
+  end
 end
 
 class Bicycle < Vehicle
-  def initialize (number) 
-    @number=number
+  def initialize (number, age=1996) 
+      @number=number
+      @age=age
   end
 end
 
 class Skateboard < Vehicle
+  def initialize (age=1999)
+    @age=age
+  end
 end
 
 moto = Motorbike.new
@@ -39,9 +59,7 @@ skateboard = Skateboard.new
 
 vehicles = [moto, car, bike, skateboard]
 
-p moto.class
-p car.what_am_i?
-=begin
+
 vehicles.each do |vehicle|
   vehicle.age!
   puts "#{vehicle.what_am_i?} responds to:"
@@ -55,4 +73,3 @@ vehicles.each do |vehicle|
   puts "\tAge: #{vehicle.age}"
   puts "\n\n"
 end
-=end
