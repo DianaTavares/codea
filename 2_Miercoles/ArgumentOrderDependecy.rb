@@ -16,23 +16,6 @@ class ContactInformation
     @num_int = num_int
     @pais = pais
     @mayor_de_edad = mayor_de_edad
-=begin
-    @nombre = args.fetch(:nombre)
-    @telefono = args.fetch(:telefono)
-    @celular = args.fetch(:celular)
-    @email = args.fetch(:email)
-    @referencia = args.fetch(:referencia)
-    @colonia = args.fetch(:colonia)
-    @municipio = args.fetch(:municipio)
-    @ciudad = args.fetch(:ciudad)
-    @estado = args.fetch(:estado)
-    @codigo_postal = args.fetch(:codigo_postal)
-    @calle = args.fetch(:calle)
-    @num_ext = args.fetch.(:num_ext)
-    @num_int = args.fetch(:num_int, nil)
-    @pais = args.fetch(:pais, "México")
-    @mayor_de_edad = args.fetch(:mayor_de_edad, false)
-=end
   end
 
   def to_s
