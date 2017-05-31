@@ -1,14 +1,18 @@
-class Computer
-  attr_accessor :color
-  attr_reader :processor
-  def initialize(color,processor)
-    @color=color
-    @processor=processor
+class Vitamin
+  def a_public_method
+    "Will this work? " + a_protected_method
+  end
+
+  private
+
+  def a_protected_method
+    "Yes, I'm protected!"
   end
 end
-mac=Computer.new("white","Intel")
-#test
-mac.processor
-#=>"Intel"
-mac.processor = "AMD"
-#=>...undefined method `processor='...
+
+class Candy < Vitamin
+
+end
+
+vitamin = Candy.new
+p vitamin.a_public_method == "Will this work? Yes, I'm protected!"
