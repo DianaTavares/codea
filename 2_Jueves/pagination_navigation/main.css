@@ -16,13 +16,10 @@ small.page_no {
   float: right;
   color: #ddd;
 }
-.pagination{
 
-}
 .pagination ul{
   list-style-type: none;
   display: inline-block;
-  margin: 0;
   padding: 0;
   margin-top: 20px;
   margin-bottom: 25px;

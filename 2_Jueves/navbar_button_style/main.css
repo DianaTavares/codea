@@ -1,0 +1,54 @@
+.container {
+  margin: 0 auto;
+  width: 720px;
+}
+
+header {
+  background-color: black;
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+nav ul{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0;
+  margin-top: 10px;
+  text-align: center;
+  border-radius: 10px;
+  
+  
+}
+
+nav li{
+  display: inline-block;
+  text-align: center;
+  border-right: solid white 3px;
+  padding: 8px;
+  margin-bottom: -4px;
+  border: solid white 1px;
+  background: -webkit-linear-gradient(white, lightgray);
+}
+
+nav a{
+  color: black;
+  text-decoration: none;
+  width: auto;
+  float: left;
+  padding: 0px 25px;
+}
+
+.primero {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.ultimo {
+   border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
