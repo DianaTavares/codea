@@ -13,16 +13,14 @@ class Cat
 
   def es_mayor_que?(who)
     #la age de who debe calcularse con el etodo protected, ya que no tiene aceso al private
-    age=who.cat_years_protected
     #la age del gato princila (el que llama al metodo) puede calcularse con cualquiera de los dos
-    age2=cat_years_private
-    age2 > age
+    cat_years_private > who.cat_years_protected
   end
 
   protected
 
  def cat_years_protected
-  @age * CAT_YEARS
+  cat_years_private
 end  
 
   private
@@ -37,4 +35,4 @@ end
 katty = Cat.new(2)
 peto = Cat.new(4)
 p katty.es_mayor_que?(peto) == false
-#=>true
+#=>true ,
