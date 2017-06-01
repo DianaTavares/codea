@@ -31,4 +31,6 @@ nav a{
   text-decoration: none;
 }
 
-
+.disabled_first{
+  border-radius-left: 5px;
+}
