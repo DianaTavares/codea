@@ -1,0 +1,8 @@
+Paso 3:
+
+¿Cómo podríamos restringir que un Menu tenga máximo un Meal de cada Category?
+en la lectura encontre que no, solo a traves de codigo se pueden poner estas restrucciones. Sobre ventajas y desjentajas, realmente creo que las bases de datos siempre deben ir acompañadas de un codeigo de progrmacón, por lo que ya me esperaba que uno generara las caracteristicas que la base debe de aceptar y seguir.
+
+Paso 4:
+
+Como se convertiria en una relacion de muchos a muchos tendria que crear una tabla de Categorys-Meals donde se conecten sus id, como el en caso de intregientes y Meals, así como eliminar el Id de Category en la tabla de Meals. 
