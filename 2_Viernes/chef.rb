@@ -1,8 +1,10 @@
-#Unineod fuerzas y manejando una base de datos desde código Ruby
+#Uninedo fuerzas y manejando una base de datos desde código Ruby
 
 require 'sqlite3'
 
 class Chef
+
+  attr_accessor :first_name, :last_name, :birthday, :email, :phone, :created_at, :updated_at
 
   def initialize(first_name, last_name, birthday, email, phone, created_at, updated_at)
     @first_name = first_name
@@ -46,12 +48,23 @@ class Chef
     )
   end
 
+  def save
+    Chef.db.execute(
+      <<-SQL
+        INSERT INTO chefs 
+          (first_name, last_name, birthday, email, phone, created_at, updated_at) 
+        VALUES 
+          ("#{@first_name}", "#{@last_name}", "#{@birthday}", "#{@email}", "#{@phone}", "#{@created_at}", "#{@updated_at}");
+      SQL
+    )
+  end
+
   private
 
   def self.db
     @@db ||= SQLite3::Database.new("chefs.db")
   end
-
+  #Metodo para visualizar todo los registros de la base de datos
   def self.all
     Chef.db.execute(
     <<-SQL
@@ -59,14 +72,21 @@ class Chef
     SQL
     )
   end
-
+  #metodo para hacer consultas con condicional Where.
   def self.where(column, value)
     Chef.db.execute(" SELECT *
                   FROM chefs
                   WHERE #{column} = ?",value)
   end
+  #Metodo para eliminar una registro de la base de datos. 
+  def self.delete(column, value)
+    Chef.db.execute("DELETE FROM chefs WHERE #{column} = #{value}")
+  end
 
-  def
+  #Metodo para crear in nuevo registro y guardaro en la base de datos
 
 
 end
+
+#Para crear un nuevo registro:
+# chef=Chef.new(first_name="Lorena", last_name="Ramirez", birthday="1985-07-02", email="Lorena_ram@gmail.com", phone="477789685215", created_at="2017-06-05", updated_at="2017-06-05")
