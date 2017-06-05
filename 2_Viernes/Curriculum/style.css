@@ -1,0 +1,83 @@
+﻿/* Hoja de estilos para la página web de CVU de Diana*/
+body
+{
+	 background-image: url("educacion.jpg"); 
+	 color:0D0F1B;
+		
+}
+p
+{
+	font-size: 16px;
+	text-align: justify;
+	
+}
+.pp
+{
+	text-align: center;
+	font-size: 20px;
+	border: 2px dashed black;
+	
+}
+.inicio
+{
+	color: #F66D64;
+	font-size: 40px;
+	font-family: AR BLANCA;
+	text-align: center;
+	text-shadow: 2px 2px 4px black;
+}
+
+h2
+{
+	color: #F66D64;
+	font-family: AR BLANCA;
+	text-align: center;
+	
+}
+a
+{
+	color: #F01757;
+}
+a:visited
+{
+	color:#08BFA7;
+}
+a:hover /*Cuando se coloca la flecha del mouse sobre un link*/
+{
+	font-size:20px;
+}
+img
+{
+    border: 2px black inset;
+    border-radius: 100%;
+    box-shadow: 5px 5px 5px black;
+    float: right;
+}
+aside
+{
+	display: inline-block;
+	background-image: url("tapiz.jpg");
+	width: 10%;
+	height: 1000px;
+	
+}
+
+.top, .top2{
+	display: inline-block;
+
+}
+
+.top{
+	width: 90%;
+}
+.parrCenter{
+	text-align: center;
+}
+
+.contacto p{
+	display: inline-block;
+	color: #F66D64;
+	padding-left: 150px;
+	text-align: center;
+}
+
