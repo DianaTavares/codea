@@ -1,0 +1,92 @@
+.container {
+  margin: 0 auto;
+  width: 768px;
+}
+
+header {
+  background-color: black;
+}
+
+#logo {
+  display: block;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  float: left;
+}
+
+a {
+  background-color: #999;
+  color: white;
+  display: block;
+  width: 182px;
+  text-decoration: none;
+  text-align: center;
+  padding: 5px;
+}
+
+.main-title {
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  top: 600px;
+  padding: 20px 0;
+}
+
+#registration{
+  background-color: #D7DBDD; 
+  display: block;
+  width: 80%;
+  position: center;
+  border-radius: 10px;
+  padding: 15px;
+  padding-bottom: 30px;
+  margin: 50px auto;
+}
+
+#registration div{
+  padding: 10px;
+  width: 100%;
+}
+
+#registration_name, #registration_email{
+  width: 265px;
+  padding: 5px;
+}
+#registration_email{
+  margin-left: 30px;
+}
+
+#registration_interes{
+  width: 590px;
+  height: 120px;
+  padding-top: 3px;
+  color: #B2BABB;
+  }
+
+#registration_tel{
+  width: 580px;
+  padding: 5px;
+}
+
+
+
+#registration_btn{
+background-color: #3498DB;
+width: 590px;
+padding: 5px;
+margin-top: 20px;
+margin-left:7px; 
+color: white;
+box-shadow: 2px 2px 50px 10px white;
+border: none;
+ }
