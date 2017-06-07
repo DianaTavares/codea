@@ -1,4 +1,51 @@
 .container {
   margin: 0 auto;
   width: 768px;
+
 }
+header {
+  background-color: black;
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+#logo{
+  float: left;
+
+}
+
+nav ul{
+  margin-top: 0;
+}
+header ul{
+  text-decoration: none;
+  padding-top: 10px;
+  padding-right: 20px;
+  
+}
+
+header li{
+  display: inline-block;
+  float: right;
+  padding-left: 40px;
+}
+
+header li a{
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+header li a:hover{
+  background: #f56f3a;
+  border-radius: 50px;
+
+}
+
+.header2 {
+    position: fixed;
+    opacity: 0.8;
+    margin-top: -20px;
+}
+
