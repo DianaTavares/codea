@@ -1,10 +1,9 @@
-Comprar manzanas rojas
-Lavar la ropa
-Convertirme en un Developer Rock Star
-Añadir una tarea
-Ver las tareas
-Eliminar tarea
-Marcar una tarea como completada
-Guardar en CSV
-TERMINAR CODEACAMP
-TERMINAR ESTE PROGRAMA
+false,Comprar manzanas rojas
+false,Lavar la ropa
+true,Convertirme en un Developer Rock Star
+false,Añadir una tarea
+false,Ver las tareas
+true,Eliminar tarea
+false,Marcar una tarea como completada
+false,Guardar en CSV
+true,TERMINAR ESTE PROGRAMA
