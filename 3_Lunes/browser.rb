@@ -1,56 +1,56 @@
 #para entender el funcinamiento de un browser, imitaremos uno con codigo ruby
-=begin
+
+require 'rubygems'
 require 'net/http'
 require 'nokogiri'
 require 'open-uri'
 
 class Page
   def initialize(url)
+    @url = url
+    @res = Net::HTTP.get_response(URI.parse(@url))
+    @parseado = Nokogiri::HTML(@res.body)
   end
 #Sabe hacer un http request y guarda la respuesta para usarse en otros métodos
   def fetch!
+    puts "Fetching..."
+    puts "Título: #{title}"
+    puts "links:"
+    links.each do |i|
+      puts "    #{i.inner_text}: #{i['href']}"
+    end
   end
 #regresa un array de los links de la página (texto/url)
   def links
+    link=[]
+    @parseado.search("nav-item > a").each do |i|
+      link<< i
+    end  
+    link
   end
 #Regresa el titulo de la página
   def title
+    title = @parseado.search("title")
+    title.first.inner_text
   end
 end
 
 class Browser
-  def run!
+  def run!(url)
+    page=Page.new(url)
+    page.fetch!
   end
 end
 
-Browser.new.run!
+#el metodo de links no funciona para todas las paginas ya que e base ne la de codeacamp y la clase usada para identificar los links de navegación es diferente para otras paginas. 
+url="hola"
+while url!='exit'
+  puts "¿Qué navegador quieres visitar?"
+  url=gets.chomp
+  if url != 'exit'
+    Browser.new.run!(url)
+  end
+end
 
-res = Net::HTTP.get_response(URI('http://www.google.com/index.html'))
-print res.body
-=end
 
-require 'net/http'
-require 'rexml/document'
- 
-# Búsqueda web de la palabra "madonna"
-url = 'http://api.search.yahoo.com/WebSearchService/V1/webSearch?appid=YahooDemo&query=madonna&results=2'
- 
-# obtener los datos xml como una cadena
-xml_data = Net::HTTP.get_response(URI.parse(url)).body
- 
-# extraer la información del evento
-doc = REXML::Document.new(xml_data)
-titles = []
-links = []
-doc.elements.each('ResultSet/Result/Title') do |ele|
-    p ele.text
-   titles << ele.text
-end
-doc.elements.each('ResultSet/Result/Url') do |ele|
-   links << ele.text
-end
- 
-# imprimir todos los eventos
-titles.each_with_index do |title, idx|
-   print "from, #{title} => #{links[idx]}\n"
-end
+
