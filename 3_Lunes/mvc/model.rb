@@ -1,6 +1,6 @@
 #En esta arquivo se guardan todos los modelos del programa ToDo. Los metodos y clases que hacen que el programa funcione se encuentran aqui
 
-#las tareas se guardan en un archivo exgterno por tanto se guardan en el csv
+#las tareas se guardan en un archivo externo por tanto se guardan en el csv
 require 'csv'
 
 #tenemos dos clases, una que maneja indibiduamente a cada tarea y otra que maneja a toda la lista de tareas.

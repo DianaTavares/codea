@@ -1,0 +1,1 @@
+p (Array.new(5){ |item| "x" } + Array.new(4){ |item| "o" }).sort_by { rand }
