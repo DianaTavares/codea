@@ -3,9 +3,125 @@ module MiniActiveRecord
   class NotConnectedError < StandardError; end
 
   class Model
-
     def self.inherited(klass)
     end
+
+    #-------------------------
+    #Colocando los nuevos metodos compartidos por ambas clases!!
+
+    #all
+    def self.all
+      MiniActiveRecord::Model.execute("SELECT * FROM #{self}s").map do |row|
+      self.new(row)
+      end
+    end
+
+    #where
+    def self.where(query, *args)
+      MiniActiveRecord::Model.execute("SELECT * FROM #{self}s WHERE #{query}", *args).map do |row|
+      self.new(row)
+      end
+    end
+
+    #find
+    def self.find(pk)
+      self.where('id = ?', pk).first
+    end
+
+    #Create
+    def self.create(attributes)
+      record = self.new(attributes)
+      record.save
+
+      record
+    end
+
+    #inicialize (como es un metodod de instancia se usa el self.class) Este metoddo se usa ne los metodos de lcase where, all y find
+    def initialize(attributes = {})
+      attributes.symbolize_keys!
+      raise_error_if_invalid_attribute!(attributes.keys)
+
+      @attributes = {}
+      p a=self.class
+
+      a.attribute_names.each do |name|
+      @attributes[name] = attributes[name]
+      end
+
+      @old_attributes = @attributes.dup
+    end
+
+    #save (se usa en el metodod create)
+    def save
+      if new_record?
+        results = insert!
+      else
+        results = update!
+      end
+
+      # When we save, remove changes between new and old attributes
+      @old_attributes = @attributes.dup
+
+      results
+    end
+
+    #new-record se utiliza en la funcion de clase save.
+    # We say a record is "new" if it doesn't have a defined primary key in its attributes 
+    def new_record?
+      self[:id].nil?
+    end
+
+    #[](atribute)
+    # e.g., chef[:first_name] #=> 'Steve'
+    def [](attribute)
+      raise_error_if_invalid_attribute!(attribute)
+
+      @attributes[attribute]
+    end
+
+    # e.g., chef[:first_name] = 'Steve'
+    def []=(attribute, value)
+     raise_error_if_invalid_attribute!(attribute)
+
+     @attributes[attribute] = value
+    end
+
+    #----------------------
+    #Metodos privados usadon en la funcion save
+
+    private
+
+    def insert!
+    self[:created_at] = DateTime.now
+    self[:updated_at] = DateTime.now
+
+    fields = self.attributes.keys
+    values = self.attributes.values
+    marks  = Array.new(fields.length) { '?' }.join(',')
+
+    insert_sql = "INSERT INTO #{self.class}s (#{fields.join(',')}) VALUES (#{marks})"
+
+    results = MiniActiveRecord::Model.execute(insert_sql, *values)
+
+    # This fetches the new primary key and updates this instance
+    self[:id] = MiniActiveRecord::Model.last_insert_row_id
+    results
+  end
+
+  def update!
+    self[:updated_at] = DateTime.now
+
+    fields = self.attributes.keys
+    values = self.attributes.values
+
+    update_clause = fields.map { |field| "#{field} = ?" }.join(',')
+    update_sql = "UPDATE #{self.class}s SET #{update_clause} WHERE id = ?"
+
+    # We have to use the (potentially) old ID attribute in case the user has re-set it.
+    MiniActiveRecord::Model.execute(update_sql, *values, self.old_attributes[:id])
+  end
+
+    #-------------------------
 
     def self.database=(filename)
       @filename = filename
