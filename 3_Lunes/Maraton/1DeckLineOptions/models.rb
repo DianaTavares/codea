@@ -7,7 +7,7 @@ class Card
 
   def initialize(question, options, answer)
     @question = question
-    @options = option
+    @options = options
     @answer = answer
   end
 end

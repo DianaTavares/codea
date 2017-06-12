@@ -19,7 +19,6 @@ class Maraton
       options = card.options
       answer = card.answer
       user_answer = @view.new_turn(question, options)
-
       #aqui me quede!!
       
       if user_answer==answer

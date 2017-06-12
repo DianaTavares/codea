@@ -6,21 +6,29 @@ class View
   end
 
   def new_turn(question, options)
-    #como la respuesta correscta esta dentro de un arreglo, la respuesta dle usuario tambien para que las pueda comparar
-    a = []
+    #arreglo donde se coocaran las respuestas en desorden
+    a=[]
+    b=["a","b","c"]
     puts
     puts "Pregunta:"
     puts question
-    puts "Opciones: "
-
-
-    #### Revisar esto (Array.new(5){ |item| "x" } + Array.new(4){ |item| "o" }).sort_by { rand } para que imprim las respuetas de manera aleatoria
-
-    #aqui me quede!!
-    a <<gets.chomp
+    puts 
+    a=options.sort_by{rand}
+    for i in 0..2
+      puts "#{b[i]}- #{a[i]}"
+    end
+    print"Opcion correcta:  "
+    letter_option=gets.chomp
+    for i in 0..2
+      if letter_option==b[i]
+        user_answer=a[i]
+      end
+    end
+      user_answer
   end
 
   def evaluated_answer(compar)
+    puts
     if compar 
      puts "Correcto :D" 
     else
