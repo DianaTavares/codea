@@ -1,14 +1,10 @@
-bote_jelly_beans = []
-colores = ["rojo", "azul", "amarillo" , "verde"]
-p colores.sample
-p colores.sample
-p colores.sample
-20.times do 
-    bote_jelly_beans << colores.sample
-end
+def random_string
 
-p bote_jelly_beans
+    a = ("a".."z")
+    b = (0..9)
+    c = a.to_a + b.to_a 
+    p c
+    key = c.shuffle[0,8]#.join
+  end
 
-bote_jelly_beans.reject! { |jelly_bean| jelly_bean == "rojo" }
-
-p bote_jelly_beans.include?("rojo") == false
+  p random_string
