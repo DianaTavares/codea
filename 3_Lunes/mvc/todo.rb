@@ -12,7 +12,7 @@ class ToDo
     @list = List.new
     options(1)
   end
-  #El prograa puede hacer 5 cosas:
+  #El programa puede hacer 5 cosas:
 def options(option)
     case option
       #1, mostrar la lista de todas las tareas, para eso llamamos el atributo de task de la instancia lista y se la enviamos a vista para que la imprima en pantalla.
