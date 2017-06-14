@@ -1,3 +1,4 @@
+status,task
 false,Comprar manzanas rojas
 false,Lavar la ropa
 true,Convertirme en un Developer Rock Star
@@ -7,3 +8,6 @@ true,Eliminar tarea
 false,Marcar una tarea como completada
 false,Guardar en CSV
 true,terminar este programa
+false,Preparar la comida
+false,compar verdura
+false,Limpiar el departamento

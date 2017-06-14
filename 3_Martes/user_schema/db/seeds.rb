@@ -14,3 +14,4 @@ module UserSeeds
     end
   end
 end
+

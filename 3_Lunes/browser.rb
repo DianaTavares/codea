@@ -23,9 +23,9 @@ class Page
 #regresa un array de los links de la página (texto/url)
   def links
     link=[]
-    @parseado.search("nav-item > a").each do |i|
+    @parseado.search(".nav-item > a").each do |i|
       link<< i
-    end  
+    end 
     link
   end
 #Regresa el titulo de la página
