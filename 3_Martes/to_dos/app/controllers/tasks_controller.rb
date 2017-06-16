@@ -1,4 +1,4 @@
-class TasksController
+lass TasksController
   def initialize(args)
     @view = TasksView.new
     @new_task = args[1]

@@ -1,14 +1,14 @@
 class TasksView
-	# Recuerda que la única responsabilidad de la vista es desplegar data al usuario
+  # Recuerda que la única responsabilidad de la vista es desplegar data al usuario
 
-	def index(tasks)
+  def index(tasks)
     puts
     puts "lista de todas las tareas"
     tasks.each do |objeto|
       status = objeto.status ? 'X' : ' '
       puts "#{objeto.id}.- [#{status}] #{objeto.task}"
     end
-	end
+  end
 
   def create
     puts "Tu tarea se ha agregado satisfactoriamente!!"
@@ -30,7 +30,7 @@ class TasksView
     STDIN.gets()
   end
 
-	def error
+  def error
     puts "opcion no valida"
-	end
+  end
 end
