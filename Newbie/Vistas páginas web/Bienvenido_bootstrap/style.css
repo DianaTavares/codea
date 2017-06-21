@@ -1,0 +1,99 @@
+#logo{
+	height: 80px;
+	width: 350px;
+	background-color: black; 
+}
+
+.container-fluid{
+	background-color: black;
+}
+
+.all_nav{
+	float: right;
+	margin-top: 20px; 
+}
+
+.jumbotron{
+	width: 80%;
+	height: 100%;
+	background: url(http://www.iexpro.edu.mx/site/images/2017/03/12/doc-edu.jpg);
+	background-color: red;
+	text-align: center;
+	background-size: 100%;
+	margin: 0 auto;
+	padding: 10px!important;
+
+	
+}
+
+.video{
+	margin: 0 auto;
+	text-align: center;
+	background-image: url(http://ndl.mgccw.com/mu3/app/20150531/09/1433043113514/ss/0_small.png);
+}
+
+.video h1{
+	font-size: 25px;
+	color: #B03A2E;
+}
+
+.video p{
+	color: #633974;
+	font-size:  20px;
+
+}
+.jumbotron h1{
+	margin-top: 0!important;
+	padding-top: 0!important;
+	text-align: center;
+	font-size: 40px !important;
+	font-family: AR BLANCA;
+	color: black!important;
+	opacity: 1!important;
+}
+
+.jumbotron p{
+	width: 90%;
+	color: black!important;
+	margin: 0 auto;
+	padding: 10px;
+	background-color: rgba(215, 215, 215, .8);
+}
+
+
+.conteiner{
+	width: 90%;
+	margin: 0 auto;
+}
+
+.btn a{
+	color: white;
+}
+
+.btn a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+.well h3{
+	text-align: center;
+	color: #2874A6;
+}
+
+.well p{
+	text-align: justify;
+}
+
+.well{
+	margin-top: 70px;
+	vertical-align: middle;
+}
+
+
+footer{
+	padding-top: 5px;
+	border-top: 2px black solid;
+	padding-bottom: 10px;
+}
+
+
