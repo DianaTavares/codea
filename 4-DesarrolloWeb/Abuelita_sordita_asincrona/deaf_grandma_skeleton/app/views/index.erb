@@ -1,0 +1,16 @@
+  <h1>Abuelita Sordita</h1>
+  <% if @abuelita %>
+   <%= erb :_parcial, :layout => false %>
+  <% end %>
+
+  <p id="nuevo"></p>
+
+  <% if @abuelita != "ADIOS HIJO, VUELVE PRONTO"%>
+  <form action="/abuelita" method="post">
+    Dile algo a tu abuelita:
+    <br>
+    <input type="text" name="user_input">
+    <input type="submit" value="Dilo!">
+    <% end %>
+  </form>
+  
