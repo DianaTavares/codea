@@ -21,6 +21,10 @@
 
 </form>
 
+<% if session[:mensaje]%>
+	<p><%= session[:mensaje] %><p>
+	<% session[:mensaje].clear %>
+<%end%>
 
 
 

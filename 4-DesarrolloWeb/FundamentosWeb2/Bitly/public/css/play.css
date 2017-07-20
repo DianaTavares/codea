@@ -1,0 +1,20 @@
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+
+}
+th {
+  text-align: left;
+}
+
+#url{
+	width:400px;
+}
+
+#test{
+	color: purple;
+	text-align: center;
+}
+

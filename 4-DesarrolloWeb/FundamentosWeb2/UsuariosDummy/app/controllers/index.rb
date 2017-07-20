@@ -1,3 +1,11 @@
+before '/profile' do 
+  unless session[:user_id]
+  	session[:mensaje]="tienes que logearte"
+  	redirect to('/')
+  end
+end
+
+
 get '/' do
   # La siguiente linea hace render de la vista 
   # que esta en app/views/index.erb
@@ -13,23 +21,16 @@ post '/login' do
 		redirect to('/')
 	else
 		@user=User.authenticate(email, password)
-		session["user_id"] = @user.id
+		session[:user_id] = @user.id
 		redirect to ("/profile")
 	end
 	
 end
 
-# before '/profile' do
-# 	if session["user_id"] != nil
-# 		redirect to ("/profile")
-# 	else
-# 		"No puedes ver esta página sin iniciar sesión"
-# 		redirect to('/')
-# 	end	
-# end
+
 
 get '/profile' do
-	@user = User.find_by_id(session["user_id"])
+  @user = User.find_by_id(session[:user_id])
   erb :profile
 end
 
@@ -60,7 +61,7 @@ post '/create' do
 end
 
 get '/secret_page' do
-	if session["user_id"] != nil
+	if session[:user_id] != nil
 		erb :secret_page
 	else
 		redirect to("/")
@@ -68,6 +69,6 @@ get '/secret_page' do
 end
 
 get '/close' do
-	session["user_id"] = nil
+	session[:user_id] = nil
 	redirect to("/")
 end
