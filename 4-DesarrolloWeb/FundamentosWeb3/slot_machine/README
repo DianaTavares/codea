@@ -1,0 +1,38 @@
+Solt Machine
+
+--INSTRUCCIONES-----
+
+En este ejercicio vamos a aprender cómo convertir una aplicación que ya funciona de forma síncrona, para que también lo haga de forma asíncrona.
+
+A final de cuentas lo que trataremos de hacer es evitar hacer un reload completo de la página y hacerlo sólo de una parte específica que nos interesa modificar.
+
+Objetivos Académicos
+* Comprender los beneficios de AJAX
+* Familiarizarse con el diseño de AJAX
+* Utilizar jQuery para hacer peticiones asíncronas
+* Manipulación el DOM
+
+Descarga el archivo original de:
+https://www.dropbox.com/s/245otctyq8f9v2a/slot_machine.zip?dl=1
+
+INVESTIGA COMO FUNCIONA EL CÓDIGO
+
+Antes de empezar y cambiar algo, revisa los componentes de la aplicación (la migración, el modelo, los controladores, las vistas, etc.). Deberás comprender cómo están interactuando entre ellos componentes.
+
+-- NOTAS DE LA PROGRAMACIÓN-----
+
+1) inicio con un bundle
+
+2) creacion de la base de datos (rake db:create) y la migracion (rake db:migrate) y nadamas porque el archivo seed esta vacio. Al archivo de la migración tuve que agregarle[4.2] para que funcionara correctamente.  
+
+3) shotgun config.ru en la consola para verificar como funciona la aplicacion 
+
+4) revisamos los arhivos VIEW. Para poder modificar el archivo css para que la aplicacion luciera igual que el video, tuve que cambiarle el nombre y luego regresar al nombre origial, solo así hacia los cambios.
+
+5)basandome en el ejercicio de abuelita_asincrona, empece a modificar el archivo de applicacion.js que es donde se crea lo asincrono, primero deteniendo el submit. 
+
+6) a diferencia del de abuelita, en este no se guarda ningua informacion del usuario, asi que en serialize lo elimine, y coloque la ruta del lugar en el html donde se modificara la información. 
+
+7) finalmente, en el controlador index.rb, hasta el final agregue la indicacion de que si viene de un request solo modifique la seccion de _die_roll (super importante!!! colorar el layout: false al final!!) o si no viene de un request envie a la pagina principal, logueando toda la pagina de nuevo. 
+
+
