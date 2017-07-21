@@ -1,0 +1,18 @@
+<h1>Perfil del usuario</h1>
+
+<p>Información del usuario:</p>
+<p> Nombre: <%= @user.name %></p>
+<p> Correo: <%= @user.email %></p>
+
+<form action="/home/close" method="get">
+	<br> <br>
+	<input type="submit" value="Cerrar sesion">
+
+</form>
+
+ <a href="/" class="regresar">Regresar a Urls</a>
+
+  <p>Mini URLs que has creado al momento:</p>
+ <%@all_urls_user.each do |url|%>
+  	<p> <a href="/<%=url.id%>" target="blank"><%=url.short_url%> </a>  número de visitas   <%=url.counter%></p>
+ <%end%>

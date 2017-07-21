@@ -1,0 +1,32 @@
+  <h1 id="test">Bienvenido mini-Bitly!!</h1>
+  <br>
+  <p>Coloca la URL que deseas hacer más pequeña</p>
+  <form action="/urls" method="post" >
+  	<input id="url" type="text" name="url"
+  	placeholder="http://www.ejemplo.com">
+  	<input type="submit" value="enviar">
+  </form>
+
+  <br>
+  <p> <a href="/home/profile">Ver solo mis URLs</a> &nbsp; &nbsp; &nbsp; &nbsp;<a href="/home/1">Login</a> </p>
+
+  <% if session[:mensaje]%>
+  <p style="color:#FF0000";><%= session[:mensaje] %><p>
+  <% session[:mensaje].clear %>
+<%end%>
+  
+
+
+  <%if @all_urls%>
+  <br>
+  	<p>Mini URLs que has creado al momento:</p>
+  	<%@all_urls.each do |url|%>
+  		<p> <a href="/<%=url.id%>" target="blank"><%=url.short_url%> </a>  número de visitas   <%=url.counter%></p>
+ 	 <%end%>
+
+  <%end%>
+  <br>
+
+ 
+
+  

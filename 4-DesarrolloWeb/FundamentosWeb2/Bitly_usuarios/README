@@ -1,0 +1,33 @@
+Bitly con usuarios!!
+
+Vamos a incorporar usuarios a nuestra app de Bitly. Esto hará que los usuarios puedan guardar una lista de las urls que han creado y la posibilidad de crear urls privadas.
+
+Objetivos Académicos
+*Seguir aprendiendo sobre asociaciones en Activerecord
+*Aprender a juntar dos pedazos de código o apps en una sola.
+*Seguir explorando como funciona la autorización
+
+"Actividades"
+
+Pega las dos apps
+Empieza por juntar las dos aplicaciones (bitly y usuarios Dummy), recuerda que no solo es un copy/paste, hay también que crear las migraciones, modelo y controladores relevantes y ver que todo este funcionando correctamente.
+
+1) Estoy usando como base el codigo de Bitly y le estoy pasando la informacion de usuario, iniciando con las gemas, verifique que las gemas que requiere usuario las tengla Bitly.
+
+2) ahora sigo con el archivo de migraciones, como es una relacion uno a muchos, recordemos que el id_usuario (con belongs_to) debe incluirse a la tabla de urls, y creamos la tabla de usuarios. 
+
+3) Ahora seguimos con los modelos, debe crearse uno para cada tabla (user y urls). en este archivo se debe de crear una clase para cada una de las tablas, asi que copie y peqye la de User. Agregamos has_maby :urls a la case de Users y belongs_to :users en la clase del urls  para establecer la relacion de uno a muchos. Revisamos las validaciones, pero ya esaban completas.
+
+4) Creamos la base de datos en consola! 
+
+5) Creamos los tres controladores que se necesitan:
+
+* app/controllers/urls.rb, este file deberá contener las acciones que crean, enlistan y redirigen a la long_url.
+
+*app/controllers/sessions.rb, contiene las rutas para Iniciar sesión y terminarla
+
+*app/controllers/users.rb, contiene las rutas para crear, enlistar, editar, etc para usuarios.
+
+6) a la vista de index de las urls le agregamos un link para dirigir a la seccion de login. (las vlaidaciones url no me sirvieron y las comente)
+
+7)lo demas ha sifo manipular los controllers y las Views para que el programa haga lo que necesitamos. 
