@@ -1,0 +1,55 @@
+Jquery Tomando Control
+
+En este ejercicio podrás ver los poderes que tienen jQuery, los cuales utilizarás para tomar control sobre la página que más te guste.
+
+jQuery es una librería de Javascript que permite manipular el DOM. Una forma muy fácil de aprender a utilizar jQuery es usando la consola de Chrome para modificar el contenido de una página y ver en tiempo real como se modifica.
+
+Objetivos Académicos
+* Practicar y aprender jQuery
+* Comprender como recorrer el DOM
+* Comprender como amarrar funciones a eventos (binding to events)
+* Comprender como funcionan los efectos
+
+Actividades
+Deberás de dedicar no más de 10 min a cada uno de los siguientes hacks a una página. Has un archivo para escribir tu código y luego copialo a la consola para ver como funciona y si realmente funciona.
+
+ => Se eligio la pagina web https://pando.com/
+
+Utiliza los selectores básicos ( element, id y class) para seleccionar dos elementos de la pagina. Utiliza la función .css() para alterar una propiedad de dos elementos distintos.
+
+=> los selectores usados en este ejercicio fueron:
+	* $("h2").css("color", "green")  que cambio los h2 de la pagina al color verde
+	* $("a").css("font-size", "40px")  que cambio el tamaño de todos los links "a" a un tamaño mayor de 40px
+
+Utiliza los selectores básicos y el método .find() para seleccionar una imagen en la página y cambiarla por otra imagen que te guste.
+
+=> las línea de código usadas aqui fueron:
+* $(".listed").find("img").attr("src", "https://i.ytimg.com/vi/DYGxpcjPqAc/maxresdefault.jpg")
+la cual cambio la imagen que era hija de la clase listed a la imagen que tiene el link
+
+
+Usa traverse methods para recorrer el DOM y seleccionar todas las instancias de un elemento que se repita en la página y utiliza el método animate() para modificarlos.
+
+=> los codigos usados fueron: 
+
+$( ".nut" ).click(function() {
+  $( "img" ).animate({
+    width: "70%",
+    opacity: 0.4,
+    marginLeft: "0.6in",
+    fontSize: "3em",
+    borderWidth: "10px"
+  }, 1500 );
+});
+
+lo que nos dice es que, cuando le des click a un parrafo que tiene class="nut" todas las imagenes se extenderan hasta que su width sea de  "70%", se opacaran 0.4, se modificara el margen, el tamaño de letra y lo hara en un tiempo de 1500 milisegundos. 
+
+Busca un elemento al cual tengas que llegar utilizando al menos tres selectors / traverse methods para localizarlo. Después utiliza el método .on() para hacer un bind a un evento especifico que modifique el elemento.
+
+=> el codigo utilizado es:
+
+$("#previously").find(".menu").first("il").bind("click", function(){
+	alert("Used clicked");
+});
+
+use solo dos selectors / traverse porque o hay un elemento en esta pagina tan escondido como para usar dos para elegir el primer il que esta en un menu dentro de un div con id previosly. Al investigar vi que el .on y el .bind hacen los mismo, asi que no supe como usarlos ambos al mismo tiempo. Ya habia usado elementos para cambiar el elemnto, asi que lo que hice fue agrear una ventana emergente mediante alert. 
