@@ -19,6 +19,19 @@ INVESTIGA COMO FUNCIONA EL CÓDIGO
 
 Antes de empezar y cambiar algo, revisa los componentes de la aplicación (la migración, el modelo, los controladores, las vistas, etc.). Deberás comprender cómo están interactuando entre ellos componentes.
 
+Te recomendamos seguir las siguientes preguntas:
+
+* ¿Cómo puedes interceptar y prevenir el envío de la forma para evitar su comportamiento normal con jQuery?
+* ¿Cómo se hace un post de AJAX con jQuery?
+* ¿Cómo envío datos en una petición?
+* ¿Qué tengo que modificar del lado del servidor, tanto en las rutas como en las vistas?
+* ¿Cuando el servidor responde, qué tengo que hacer?
+* ¿Cómo modifico el DOM y qué porción quiero modificar
+
+al final, la palicaicon debe de funcionar asi:
+
+ https://youtu.be/e2a8xz7JAlM
+
 -- NOTAS DE LA PROGRAMACIÓN-----
 
 1) inicio con un bundle

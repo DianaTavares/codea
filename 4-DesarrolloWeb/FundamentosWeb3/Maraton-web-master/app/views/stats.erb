@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Estadisticas</h1>
+    <table class="table table-striped">
+      <thead>
+        <th>Usuario</th>
+        <th>Deck</th>
+        <th>Num. Preguntas</th>
+        <th>Correctas</th>
+        <th>Incorrectas</th>
+      </thead>
+      <tbody>
+        <% @rounds.each do |round| %>
+          <tr>
+            <td><%= round.user.name %></td>
+            <td><%= Deck.find(round.deck_id).name %></td>
+            <td><%= round.num_guesses %></td>
+            <td><%= round.correct_guesses %></td>
+            <td><%= round.incorrect_guesses %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

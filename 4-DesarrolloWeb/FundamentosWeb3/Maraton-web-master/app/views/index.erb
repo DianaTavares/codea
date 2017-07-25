@@ -1,0 +1,21 @@
+  <div class="row jumbotron text-center">
+    <h1>Bienvenido a Maratón</h1>
+    <p>Este es un juego</p>
+  </div>
+  <div class="row">
+    <% if session[:user_id] %>
+      
+      <div class="col-md-6">
+        <a href="/new_game" class="btn btn-success btn-block">Nuevo Juego</a>
+      </div>
+      <div class="col-md-6">
+        <a href="/new_deck" class="btn btn-primary btn-block">Nuevo Deck</a>
+      </div>
+    <% else %>
+      <div class="col-md-12">
+        <a href="/new_user" class="btn btn-info btn-block">Nuevo Usuario</a>
+      </div>
+    <% end %>
+  </div>
+
+  

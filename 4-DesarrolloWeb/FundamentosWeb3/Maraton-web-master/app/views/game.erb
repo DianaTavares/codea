@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Contesta las preguntas de <%= @deck.name %>:</h1>
+    <% if @cards.empty? %>
+      <h4>Este deck no contiene cartas</h4>
+    <% else %>
+      <form method="POST" action="/finish_round">
+        <% @cards.each do |card| %>
+          <h3><%= card.question %></h3>
+          <label class="custom-control custom-radio">
+            <input name="option[<%= card.id %>]" type="radio" class="custom-control-input" value="1">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"><%= card.option_1 %></span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input name="option[<%= card.id %>]" type="radio" class="custom-control-input" value="2">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"><%= card.option_2 %></span>
+          </label>
+          <label class="custom-control custom-radio">
+            <input name="option[<%= card.id %>]" type="radio" class="custom-control-input" value="3">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"><%= card.option_3 %></span>
+          </label>
+        <% end %>
+        <br>
+        <input type="hidden" name='round' value="<%= @round.id %>">
+        <input type="hidden" name='deck' value="<%= @deck.id %>">
+        <input class="btn btn-lg btn-success" type="submit">
+      </form>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>Selecciona un tema</h1>
+    <% @decks.each do |deck| %>
+      <div class="col-md-4">
+        <h3><%= deck.name %></h3>
+        <a href="/deck/<%= deck.id %>">Jugar ahora</a>
+      </div>
+    <% end %>
+  </div>
+</div>

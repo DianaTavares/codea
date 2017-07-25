@@ -1,0 +1,30 @@
+<div class="row" >
+  <div class="col-md-12">
+    <h1>Agrega una pregunta:</h1>
+    <form method='POST' action='/new_card'>
+      <div class="form-group">
+        <label for="question">Ingresa tu pregunta</label>
+        <input type="text" class="form-control" name="question" id="question" placeholder="Enter question">
+      </div>
+      <div class="form-group">
+        <label for="answer_1">Ingresa la primera respuesta</label>
+        <input type="text" class="form-control" name="answer_1" id="answer_1" placeholder="Enter answer_1">
+      </div>
+      <div class="form-group">
+        <label for="answer_2">Ingresa la segunda respuesta</label>
+        <input type="text" class="form-control" name="answer_2" id="answer_2" placeholder="Enter answer_2">
+      </div>
+      <div class="form-group">
+        <label for="answer_3">Ingresa la tercera respuesta</label>
+        <input type="text" class="form-control" name="answer_3" id="answer_3" placeholder="Enter answer_3">
+      </div>
+      <div class="form-group">
+        <label for="correct_answer">Cual es la respuesta correcta</label>
+        <input type="number" class="form-control" name="correct_answer" id="correct_answer" placeholder="Enter correct_answer"  min="1" max="3">
+        <input type="hidden" name="deck" value="<%= @deck.id %>">
+        <input type="submit" name='save' class="btn btn-success" value="Guardar y agregar otra">
+        <input type="submit" name='save' class="btn btn-warning" value="Guardar y Terminar">
+      </div>
+    </form>
+  </div>
+</div>

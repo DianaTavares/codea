@@ -19,7 +19,7 @@
 
   <%if @all_urls%>
   <br>
-  	<p>Mini URLs que has creado al momento:</p>
+  	<p>Mini URLs que se han creado al momento:</p>
   	<%@all_urls.each do |url|%>
   		<p> <a href="/<%=url.id%>" target="blank"><%=url.short_url%> </a>  número de visitas   <%=url.counter%></p>
  	 <%end%>
