@@ -1,0 +1,22 @@
+
+<h1 id="main-title">¡RAYUELA!</h1>
+    <button id="start_btn">Jugar</button>
+    <button id="retur_btn" action="/reiniciar">Reiniciar</button><br><br>
+
+    <table class="table">
+      <tr id="Player1">
+        <td id="player1"><strong>Jugador 1 &nbsp</strong></td>
+        <td id="player1_0" class="active">0 </td>
+        <%30.times do |i|%>
+          <td id="player1_<%="#{i+1}"%>"><%="#{i+1}"%>&nbsp</td>
+        <%end%>
+      </tr>
+
+      <tr id="Player2">
+        <td id="player2"><strong>Jugador 2 &nbsp</strong></td>
+        <td id="player2_0" class="active">0 </td>
+        <%30.times do |i|%>
+        <td id="player2_<%="#{i+1}"%>"><%="#{i+1}"%>&nbsp</td>
+        <%end%>
+      </tr>
+</table>

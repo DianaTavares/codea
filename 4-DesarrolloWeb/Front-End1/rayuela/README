@@ -1,0 +1,44 @@
+Rayuela Web (Javascript)
+
+Vamos a crear el juego de la rayuela en el navegador.
+
+Éste ejercicio está dividido en dos partes. La primera es crear el juego web y la segunda hacer del juego una aplicación donde se guarden los puntajes y los usuarios que compitieron juntos.
+
+Ve el siguiente video para que te des una idea sobre qué vas a crear:
+	https://youtu.be/KSF3h1nslNw
+
+
+Como ves en el video, cuando empieza el juego automáticamente se tiran las dos monedas y los jugadores deben de detenerlas lo más cerca de la línea roja. Deberás asignar una tecla a cada jugador con la cual podrá parar su moneda (las teclas que tú quieras).
+
+Vamos a aprender cómo JavaScript y jQuery modifican el DOM, además de trabajar con eventos asíncronos.
+
+Antes de empezar te recomendamos leer lo siguiente sobre jQuery y cómo funcionan los eventos (event handling) y los callbacks. jQuery (visita http://learn.jquery.com/about-jquery/)
+
+Objetivos Académicos
+* Familiarizarse con los eventos y callbacks.
+* Practicar la modificación del DOM utilizando jQuery.
+* Comprender el concepto de eventos asíncronos.
+
+Descarga el archivo para empezar: https://www.dropbox.com/s/asurcuof8php0r3/rayuela.zip?dl=1
+
+Para empezar
+Vamos a utilizar el esqueleto de Sinatra vacío.
+
+Primero vamos a empezar por crear el tablero con HTML, hay muchas maneras para hacerlo. Seguramente necesitarás alrededor de 100 td's para completar tu tablero (o los que creas conveniente)
+
+** Para ir viendo como nos va quedando, hacemos el bundle (no se dejo, entonces hice un bundle update) en la consola y el shotgun config.ru y creamos la tabla en el archivo index, manipulando el archivo application.css para que se viera como se muestra en el video.
+
+Si te das cuenta dentro de un carril un td tiene la clase active, lo cual nos servirá para saber la posición de la moneda. De esta manera podemos quitar y agregar esta clase a diferentes td's para actualizar la posición del jugador en la tabla.
+
+Divide y Vencerás
+Para facilitar las cosas y como te hemos enseñado divide tu problema en un problema más pequeño. Empieza por hacer que funcione solamente uno de los jugadores o carriles. Una vez que logres esto intenta hacer dinámicas algunas de las funciones para que sean utilizables por cada jugador simultáneamente.
+
+Ahora Javascript
+Ya que tienes el tablero en HTML ahora necesitamos hacerlo dinámico. Crea funciones de JavaScript y jQuery para actualizar el tablero, esto es que la posición de la moneda de cada jugador se mueva de una casilla a otra cuando llames a 'x' función.
+
+Crea funciones que logren esto como en el siguiente ejemplo.
+
+throw_coin('player1');
+Utiliza la consola de Chrome para debuggear tu JavaScript.
+
+**Empezare manipulando el archivo application.js
