@@ -66,3 +66,7 @@ tr{
 .active {
   background-color: pink !important;
 }
+
+h3{
+  color: red;
+}

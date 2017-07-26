@@ -14,7 +14,6 @@ $(document).ready(function() {
 		lanzarMoneda("#Player2");
 		//llamamos a la funcion deterctar tecla
 		$(window).bind(detectarTecla());
-		//llamamos a la funcion que me dice quien gano
 
 	});
 
@@ -35,13 +34,26 @@ $(document).ready(function() {
 			console.log("Player 2 termino");
 			jugador2meta == true;
 		}
-
 		//si el indice de current_player es menor a 30 (lo largo de la pista) has la funcion timeout, que lo que hace es volver a dirigirte a esta misma funcion y dar un timepo de 50 milisegundos, para que le proceso sea lento y visible al usuario.
 		else if (30> $($current_player).index()){
 			setTimeout(function(){
 				lanzarMoneda(player);
 			},50);
 		};
+		//llamamos a la funcion que me dice quien gano, primero guardo el texto del td donde se quedo la class active en ambos players
+		var tp1 = $("#Player1").find(".active").text();
+		var tp2 = $("#Player2").find(".active").text();
+		//si ambos jugadores pararon su moneda a tiempo llamamos a una funcion que compara quien esta mas cerca de la meta
+		if (teclaS && teclaL ){
+			winerIs(tp1, tp2);
+		// si uno de los jugadores no presiono su tecla a tiempo, por default el otro jugador gana.
+		}else if(teclaS || teclaL){
+			winerforDefault(tp1, tp2);
+			//si ninguno de los jugadores se detuvo a tiempo y llegaron al final, ambos pierden.
+		}else if(parseInt(tp1) == 30 && parseInt(tp2) == 30) {
+			$(".ganador").html("<h3>Ambos pierden!!</h3>");
+		};
+
 	};
 
 	//------------------------>Funcion para detectar la tecla presionada por el usuario
@@ -52,15 +64,37 @@ function detectarTecla (){
 		if (83 == event.keyCode){
 			teclaS = true;
 			//guardamos el id del td donde se encuentra la class active
-			tp1 =$("#Playe1").find(".active").attr("id");
-		 	console.log ("presiono la tecla s!! " + teclaS + tp1);
+
+		 	console.log ("presiono la tecla s!! " + teclaS);
 		}
 		else if (76 == event.keyCode){
 			teclaL = true;
-			tp2 =$("#Playe1").find(".active").attr("id");
-			console.log ("presiono la tecla l!! " + teclaL + tp2);
+			console.log ("presiono la tecla l!! " + teclaL);
 		}
 	});
 };
+
+	//----------------------->Funcion winerIs, la cual calcula cual de los usuarios quedo mas cercano a la meta y con un if muestra en pantalla con .html el resultado
+	function winerIs (tp1,tp2){
+		var p1Points = 30 - parseInt(tp1);
+		var p2Points = 30 - parseInt(tp2);
+		if (tp1 == tp2){
+			$(".ganador").html("<h3>Tenemos un Empate!!</h3>");
+		}else if (p1Points > p2Points ){
+			$(".ganador").html("<h3>El ganador es el Jugador 2!!</h3>");
+		}else if (p1Points < p2Points) {
+			$(".ganador").html("<h3>El ganador es el Jugador 1!!</h3>");
+		};
+
+	};
+
+	//--------------------->funcion winerforDefault. si uno de los jugadores no detuvo su moneda a timepo, por default el otro jugador gana.
+	function winerforDefault(tp1, tp2){
+		if (parseInt(tp1) == 30 && teclaL){
+			$(".ganador").html("<h3>El ganador es el Jugador 2!!</h3>");
+		}else if (parseInt(tp2) == 30 && teclaS){
+			$(".ganador").html("<h3>El ganador es el Jugador 1!!</h3>");
+		};
+	};
 
 });
