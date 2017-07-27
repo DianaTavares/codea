@@ -3,9 +3,10 @@ $(document).ready(function() {
 	//guardan si se presiono o no la tecla para detener
 	teclaS = false;
 	teclaL = false;
-	//guardan si el jugador se detuvo antes de llegar a la meta o no
-	jugador1meta = false;
-	jugador2meta = false;
+	winner = "player1"
+	winnerPoints = 0;
+
+//----------------===========Aqui me quede=================
 
 	//Se activa una funcion cuando se hace click al boton con id #start_btn
 	$( "#start_btn" ).click(function(){
@@ -18,7 +19,6 @@ $(document).ready(function() {
 	});
 
 
-
 	//------------------------>Funcion lanzar moneda: quita y agrega la clase "active" a las celdas en la tabla, tiene un setTimer para hacer el movimienot lento y observable al usuario.
 	function lanzarMoneda(player) {
 		//guardamos en la variable el elemento actual que tiene asignada la calse "active" y se la quitamos con removeClass
@@ -28,11 +28,8 @@ $(document).ready(function() {
 		//si el Player1 presiona la tecla S, se detiene el avance, lo mismo para el user 2 con la tecla l
 		if (player == "#Player1" && teclaS == true){
 			console.log("Player 1 termino");
-			//el jugar de detebe antes de llegar a la meta, activo la variable.
-			judador1meta = true;
 		} else if (player == "#Player2" && teclaL == true){
 			console.log("Player 2 termino");
-			jugador2meta == true;
 		}
 		//si el indice de current_player es menor a 30 (lo largo de la pista) has la funcion timeout, que lo que hace es volver a dirigirte a esta misma funcion y dar un timepo de 50 milisegundos, para que le proceso sea lento y visible al usuario.
 		else if (30> $($current_player).index()){
@@ -52,6 +49,10 @@ $(document).ready(function() {
 			//si ninguno de los jugadores se detuvo a tiempo y llegaron al final, ambos pierden.
 		}else if(parseInt(tp1) == 30 && parseInt(tp2) == 30) {
 			$(".ganador").html("<h3>Ambos pierden!!</h3>");
+			winner = "Ninguno";
+			winnerPoints = - 1;
+			//con este post le envio la informacion al controller, se coloca el get al que se dirige y los datos que van a ser enviados.
+			$.post("/game_done",{winner: winner, winnerPoints: winnerPoints});
 		};
 
 	};
@@ -80,10 +81,25 @@ function detectarTecla (){
 		var p2Points = 30 - parseInt(tp2);
 		if (tp1 == tp2){
 			$(".ganador").html("<h3>Tenemos un Empate!!</h3>");
+			winner = "Empate";
+			winnerPoints = p1Points;
+			console.log("el ganador es: " + winner + " y sus puntos son" + winnerPoints);
+			//enviar la informacion al controller
+			$.post("/game_done",{winner: winner, winnerPoints: winnerPoints});
 		}else if (p1Points > p2Points ){
 			$(".ganador").html("<h3>El ganador es el Jugador 2!!</h3>");
+			winner = "Player2";
+			winnerPoints = p2Points;
+			console.log("el ganador es: " + winner + " y sus puntos son" + winnerPoints);
+			//enviar la informacion al controller
+			$.post("/game_done",{winner: winner, winnerPoints: winnerPoints});
 		}else if (p1Points < p2Points) {
 			$(".ganador").html("<h3>El ganador es el Jugador 1!!</h3>");
+			winner = "Player1";
+			winnerPoints = p1Points;
+			console.log("el ganador es: " + winner + " y sus puntos son" + winnerPoints);
+			//intento para neviar información al archivo de ruby por medio de un post
+			$.post("/game_done",{winner: winner, winnerPoints: winnerPoints});
 		};
 
 	};
@@ -92,8 +108,16 @@ function detectarTecla (){
 	function winerforDefault(tp1, tp2){
 		if (parseInt(tp1) == 30 && teclaL){
 			$(".ganador").html("<h3>El ganador es el Jugador 2!!</h3>");
+			winner = "Player2";
+			winnerPoints = 30 - parseInt(tp2);
+			console.log("el ganador es: " + winner + " y sus puntos son" + winnerPoints);
+			$.post("/game_done",{winner: winner, winnerPoints: winnerPoints});
 		}else if (parseInt(tp2) == 30 && teclaS){
 			$(".ganador").html("<h3>El ganador es el Jugador 1!!</h3>");
+			winner = "Player1";
+			winnerPoints = 30 - parseInt(tp1);
+			console.log("el ganador es: " + winner + " y sus puntos son" + winnerPoints);
+			$.post("/game_done",{winner: winner, winnerPoints: winnerPoints});
 		};
 	};
 

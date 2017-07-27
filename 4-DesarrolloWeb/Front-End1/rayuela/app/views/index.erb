@@ -1,33 +1,14 @@
-
-<h1 id="main-title">¡RAYUELA!</h1>
-    <button id="start_btn">Jugar</button>
-     <a href="/" class="btn btn-success">Reiniciar</a><br><br>
-
-     <h3>Intrucciones</h3>
-     <p>Dale clik en "Jugar" y la moneda será lanzada para ambos jugadores.</p>
-     <p>El Jugar1 debe presionar la tecla "s" para detener su moneda.</p>
-     <p>El jugador2 debe presionar la tecla "l" para detener la moneda.</p>
-     <p>Gana el jugador que logre dejar su moneda mas cerca de la linea de meta sin pasarla!!</p>
-     <br><br>
-
-    <table class="table">
-      <tr id="Player1">
-        <td id="player1"><strong>Jugador 1 &nbsp</strong></td>
-        <td id="player1_0" class="active">0 </td>
-        <%30.times do |i|%>
-          <td id="player1_<%="#{i+1}"%>"><%="#{i+1}"%>&nbsp</td>
-        <%end%>
-      </tr>
-
-      <tr id="Player2">
-        <td id="player2"><strong>Jugador 2 &nbsp</strong></td>
-        <td id="player2_0" class="active">0 </td>
-        <%30.times do |i|%>
-        <td id="player2_<%="#{i+1}"%>"><%="#{i+1}"%>&nbsp</td>
-        <%end%>
-      </tr>
-</table>
-
-<div class="ganador">
-
-</div>
+<h1> Bienvenido a Rayuela </h1>
+<div class="col-md-12">
+    <form action="/game" method="post">
+      <div class="form-group">
+        <label for="player1">Nombre del Jugador 1:</label>
+        <input type="text" class="form-control" name="player1">
+      </div>
+      <div class="form-group">
+        <label for="player2">Nombre del Jugador 2:</label>
+        <input type="text" class="form-control" name="player2">
+      </div>
+      <input type="submit" value="Jugar!" class="btn btn-lg btn-block btn-success">
+    </form>
+  </div>

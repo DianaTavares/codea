@@ -1,0 +1,26 @@
+<div class="row">
+<div class="col-md-12">
+  <h1>Resultados</h1>
+  <a href="/" class="btn btn-danger">Home</a>
+  <br>
+  <br>
+  <table class="table table-striped">
+    <thead>
+      <th>Jugador 1</th>
+      <th>Jugador 2</th>
+      <th>Ganador</th>
+      <th>casillas antes de la meta</th>
+    </thead>
+    <tbody>
+      <% @allgames.reverse.each do |game| %>
+      <tr>
+        <td><%= game.player1 %></td>
+        <td><%= game.player2 %></td>
+        <td><%= game.winner %></td>
+        <td>&nbsp &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= game.score %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>
