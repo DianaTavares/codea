@@ -1,0 +1,19 @@
+<h1>Sign In</h1>
+
+<% if session[:error] %>
+  <p><%= session[:error] %></p>
+<% end %>
+<div class="container" id="form">
+  <!-- ¿Qué va en esta parte para realizar el sign in? -->
+  <form method='POST' action='/signin'>
+    <div class="form-group">
+      <br><br>
+      <label for="Email">Email:</label>
+      <input type="text" name="email" placeholder="Escribe tu correo">
+      <label for="name">password:</label>
+      <input type="password" name="password" placeholder="Escribe tu contraseña">
+      <input type="submit" class="btn btn-success">
+    </div>
+  </form>
+
+</div> <!--end "login_form" div -->

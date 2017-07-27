@@ -1,0 +1,56 @@
+Examen Fase 2
+
+MiniSubmarine Web (Javascript)
+El objetivo es crear el juego del submarino en el navegador.
+
+Este ejercicio está dividido en dos partes. La primera es crear el juego web y la segunda hacer del juego una aplicación donde se guarden las puntuaciones obtenidas por cada jugador.
+
+El siguiente video muestra los aspectos que se deben contemplar en esta aplicación: https://vimeo.com/196771054
+
+Como puedes ver en el video anterior, un usuario podrá registrarse para jugar las veces que el lo deseé. Asimismo, podrá revisar su score del número de submarinos destruidos por ronda. Cualquier usuario podrá revisar el registro de ganadores.
+
+Objetivos Académicos
+Aplicar HTML, CSS, JavaScript y jQuery para crear una aplicación. Usar Ajax para mejorar la UX.
+
+Descargar el esqueleto de https://www.dropbox.com/s/k905k8bsevjz5pm/bcrypt-submarine.zip?dl=1
+
+En el esqueleto que se ha proporcionado se agregará el código necesario y se realizarán los cambios que consideres para que la aplicación funcione.
+
+Armando la App
+El flujo de tu app debería ser muy parecido a lo siguiente:
+
+* Un jugador visita la app.
+* La app pide al jugador que se registre o en su caso ingresar al juego.
+* Al registrarse o ingresar, el usuario puede jugar las rondas que quiera.
+* El juego arranca al momento de seleccionar 'Play'.
+* El jugador tendrá tres oportunidades para destruir dos submarinos, cuando se destruye un submarino entonces el botón seleccionado aparecerá en rojo y cuando se falla aparecerá una 'X'.
+* La aplicación declara al jugador como ganador cuando destruye los dos submarinos. Toda la información de submarinos destruidos por ronda es mandada al servidor y el juego queda guardado como concluido.
+* El jugador podrá consultar sus puntuaciones en la opción correspondiente.
+* Finalmente cualquier usuario podrá consultar la lista de ganadores, la app mostrará esta lista en orden descendente.
+Modelos
+Deberás de tener dos modelos, uno para el jugador y otro para los juegos. Un jugador puede tener varios juegos y un juego puede tener solamente un jugador.
+
+Rutas
+Necesitarás como mínimo las siguientes rutas:
+
+* Registrarse al juego
+* Ingresar al juego
+* Empezar un juego / crear un juego
+* Jugar
+* Una ruta donde se muestren los resultados de un juego
+* Una ruta donde se muestre a los ganadores.
+
+
+----> iniciamos con la programacion y modificaciones del esqueleto!!
+
+1) abrimos el archivo de index.erb para modificar la vista y poder entrar a la aplicacion. Le falta agregar los botones de acceso, abri el archivo de layout para saber que clases habian usado para los botones.
+
+2) migraciones (recordando que es una relacion de unos a muchos), modelos (validaciones) y creacion de la base de datos.
+
+3) crear el login con el respectivo formulario
+
+4)en el controlador de user, creamos al nuevo usuario y abrimos su sesion
+
+5) el login y el ingreso al juego, asi como el cierre de la session
+
+6)momento de trabajar ocn el javascript
