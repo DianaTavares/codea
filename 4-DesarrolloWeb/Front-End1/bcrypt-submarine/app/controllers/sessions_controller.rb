@@ -5,7 +5,7 @@ get '/signin' do
 end
 
 get '/logout' do
-  #¿Qué va en esta parte para cerrar la sesión?
+  #¿Qué va en esta parte para cerrar la sesión? Limipiar la variable session y regresar a la pagina principal
 	session.clear
 	redirect '/'
 end
@@ -13,7 +13,7 @@ end
 # POSTS ============================================
 
 post '/signin' do
-  #¿Qué va en esta parte para ingresar al juego?
+  #¿Qué va en esta parte para ingresar al juego?, encontrar al usuario con ese correo y contraseña, abrir la sesion y mandar a la pagina dle juego. 
 	@user = User.find_by_email(params[:email])
 	if @user
 		if @user.password == params[:password]

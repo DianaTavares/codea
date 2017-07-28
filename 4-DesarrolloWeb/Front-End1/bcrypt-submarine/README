@@ -53,4 +53,6 @@ Necesitarás como mínimo las siguientes rutas:
 
 5) el login y el ingreso al juego, asi como el cierre de la session
 
-6)momento de trabajar ocn el javascript
+6)momento de trabajar ocn el javascript, las funciones ya estaban en el esqueleto, fueron pequeñas modificaniones y codigo en las funciones asi como saber donde llamarlas.
+
+7) ahora que le juego funciona, es momento de enviar la informacion de las rondas a la base de datos modificando el archivo js y el controler de games 

@@ -26,7 +26,10 @@ function start_game(subOne, subTwo) {
   function won(playerValue, subValue) {
     if (nowWinner >= 2){
       status = true;
+      //envio de la informacion de la ronda al games_controller
+      $.post("/games",{nowWinner: nowWinner});
       alert("Game Over");
+
     }
     if (countForPlay <= 2) {
       if (playerValue == subValue[0] || playerValue == subValue[1]) {
@@ -40,7 +43,10 @@ function start_game(subOne, subTwo) {
       }
     }else{
       if (status == "false"){
+        //envio de la informacion de la ronda al games_controller
+        $.post("/games",{nowWinner: nowWinner});
         alert("Game Over");
+
       }
       if (countForPlay >= 2) {
         subValue.forEach(function(cel){
