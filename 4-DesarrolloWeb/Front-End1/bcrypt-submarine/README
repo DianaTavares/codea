@@ -55,4 +55,6 @@ Necesitarás como mínimo las siguientes rutas:
 
 6)momento de trabajar ocn el javascript, las funciones ya estaban en el esqueleto, fueron pequeñas modificaniones y codigo en las funciones asi como saber donde llamarlas.
 
-7) ahora que le juego funciona, es momento de enviar la informacion de las rondas a la base de datos modificando el archivo js y el controler de games 
+7) ahora que el juego funciona, es momento de enviar la informacion de las rondas a la base de datos modificando el archivo js y el controler de games
+
+8) ahora es momento de mostrar todos los resultados en la página principal. para eso debemos modificar el controler de records y la visa de records.

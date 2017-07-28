@@ -1,4 +1,5 @@
 <div class="container">
+  <% @user = User.find_by_id(session[:user_id])%>
   <h2>Welcome <%= @user.name %></h2>
 </div>
 
@@ -7,17 +8,34 @@
 <div class="centerTable">
 	<% if @rounds.count != 0 %>
 		<table class="hovertable">
-			<!-- ¿Qué va en esta parte para llevar la puntuación por round del jugador? -->
-			
-		</table>
-	<% else %>
+			<!-- ¿Qué va en esta parte para llevar la puntuación por round del jugador? Un each de la variable que vuarda todas las rondas genradas en el controlador -->
+      <thead>
+        <th>Round</th>
+        <th>Destroyed Submarines</th>
+        <th>Result</th>
+      </thead>
+      <tbody>
+        <% @rounds.each do |round| %>
+        <tr>
+          <td><%= round.id %></td>
+          <td><%= round.destroyed_subs %></td>
+          <td><%= round.result %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    <h2>Juegos Ganados: <%=@rounds.where(result: "Winner!").count%></h2>
+    <br>
+	   <% else %>
 	  <h3>No rounds for this player!</h3>
 	<% end %>
 </div>
 
+
+
+
 <aside>
   <h3></h3>
-  <form method="post" action="/new_game">
+  <form method="get" action="/new_game">
     <input type="submit" value="Play Again">
   </form>
 </aside>

@@ -2,19 +2,29 @@
 
 <div class="centerTable">
 	<table class="hovertable">
-		<!-- ¿Qué va en esta parte para mostrar la lista de ganadores? -->
-		
-			<% if round_won != 0 %>
+		<!-- ¿Qué va en esta parte para mostrar la lista de ganadores? organizar una tabla con los valores del arreglo enviado a traves del controlador-->
+		<thead>
+			<th>Player</th>
+			<th>Games Won</th>
+		</thead>
+		<tbody>
+		<% @user_rounds_won.reverse.each do |user| %>
+			<% if user[1] != 0 %>
 				  <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-				  </tr>
+
+					<td><%= user[0] %></td>
+					<td><%= user[1] %></td>
+					</tr>
 			<% end %>
-		
+		<% end %>
+		</tbody>
 	</table>
+	<br>
 </div>
 
 <aside>
   <h3></h3>
-  <form method="post" action="/new_game">
-    <input type="submit" value="Play">
+  <form method="get" action="/">
+    <input type="submit" value="Regresar">
   </form>
 </aside>

@@ -1,7 +1,8 @@
 get '/score/:user_id' do
-  #¿Qué va en esta parte para obtener la puntuación de cada jugador (submarinos destruidos en cada ronda) y
-  #número de juegos ganados?
-
+  #¿Qué va en esta parte para obtener la puntuación de cada jugador (submarinos destruidos en cada ronda) y número de juegos ganados? Guardamos todas las rondas con el id de ese jugador
+  p "rounds"*20
+  p @rounds = Round.where(user_id: session[:user_id])
+  erb :round
 end
 
 post '/games' do
