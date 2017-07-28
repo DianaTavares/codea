@@ -64,7 +64,7 @@ div {
 
 #record {
   font-size: 16px;
-  
+
 }
 
 /*css for table*/
@@ -103,7 +103,7 @@ div.centerTable{
   padding-top: 20px;
 }
 
- 
+
 
 div.centerTable table {
   margin: 0 auto;
@@ -122,8 +122,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
@@ -134,7 +134,7 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -208,7 +208,7 @@ h1 {
   height: 190px;
   float: left;
   background: #FE7E25;
-  margin: 5px;
+  margin: 4px;
   text-align: center;
   font-size: 150px;
   color: #097054;
@@ -290,7 +290,7 @@ h3 {
     line-height:400px;
     margin:0px auto;
     text-align:center;
-   
+
 }
 
 img {
@@ -321,4 +321,3 @@ img {
   position:relative;
   top:1px;
 }
-

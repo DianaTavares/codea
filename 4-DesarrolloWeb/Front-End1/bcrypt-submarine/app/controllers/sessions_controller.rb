@@ -18,7 +18,7 @@ post '/signin' do
 	if @user
 		if @user.password == params[:password]
 			session[:user_id]=@user.id
-			erb :secret
+			redirect '/new_game'
 		else
 			session[:error] = "La contraseña es incorrecta"
 			redirect '/signin'
